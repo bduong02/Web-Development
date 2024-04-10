@@ -1,0 +1,33 @@
+# Add a book
+$bookBody = @{
+    title = "Sample Book"
+    subtitle = "Sample Subtitle"
+    origPubDate = "2022-01-01"
+    tags = @("tag1", "tag2")
+    primAuthor = 1
+} | ConvertTo-Json
+
+Invoke-WebRequest -Uri http://localhost:3000/books -Method POST -ContentType "application/json" -Body $bookBody
+
+# List all books
+Invoke-WebRequest -Uri http://localhost:3000/books -Method GET
+
+# List all books that match a given list of tags
+Invoke-WebRequest -Uri "http://localhost:3000/books/by-tags?tags=tag1,tag2" -Method GET
+" -Method GET
+
+# List all books by a specific author
+Invoke-WebRequest -Uri http://localhost:3000/books/by-author/1 -Method GET
+
+# Get the details of a specific book (assuming the book has ID 1)
+Invoke-WebRequest -Uri http://localhost:3000/books/1 -Method GET
+
+# Update any of the attributes of a specific book (assuming the book has ID 1)
+$updatedBookBody = @{
+    title = "Updated Title"
+} | ConvertTo-Json
+
+Invoke-WebRequest -Uri http://localhost:3000/books/1 -Method PUT -ContentType "application/json" -Body $updatedBookBody
+
+# Remove a book (and by extension all its editions) (assuming the book has ID 1)
+Invoke-WebRequest -Uri http://localhost:3000/books/1 -Method DELETE
