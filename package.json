@@ -1,16 +1,19 @@
 {
-  "name": "untitled",
+  "name": "your-project",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "add-author": "curl -X POST -H \"Content-Type: application/json\" -d '{\"fullName\":\"John Doe\",\"bio\":\"New Bio\",\"birthDate\":\"1990-01-01\",\"primaryGenre\":\"Fiction\"}' http://localhost:3000/authors",
+    "list-authors": "curl http://localhost:3000/authors",
+    "update-author-bio": "curl -X PUT -H \"Content-Type: application/json\" -d '{\"bio\":\"Updated Bio\"}' http://localhost:3000/authors/1",
+    "add-book": "curl -X POST -H \"Content-Type: application/json\" -d '{\"title\":\"Sample Book\",\"subtitle\":\"Sample Subtitle\",\"origPubDate\":\"2023-01-01\",\"tags\":[\"fiction\",\"mystery\"],\"primAuthor\":1}' http://localhost:3000/books",
+    "list-books": "curl http://localhost:3000/books",
+    "add-edition": "curl -X POST -H \"Content-Type: application/json\" -d '{\"editionNumber\":1,\"publicationDate\":\"2023-01-01\"}' http://localhost:3000/books/1/editions",
+    "list-editions": "curl http://localhost:3000/books/1/editions"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.2",
-    "express": "^4.19.2"
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0"
   }
 }
