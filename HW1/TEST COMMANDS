@@ -1,0 +1,38 @@
+# Add an author
+Invoke-WebRequest -Uri "http://localhost:3000/authors" -Method POST -ContentType "application/json" -Body '{"fullName":"Jane Smith","bio":"A talented author","birthDate":"1985-05-15","primaryGenre":"Fantasy"}'
+
+# List all authors
+Invoke-WebRequest -Uri "http://localhost:3000/authors" -Method GET
+
+# Update a specific author's bio
+Invoke-WebRequest -Uri "http://localhost:3000/authors/1" -Method PUT -ContentType "application/json" -Body '{"bio":"An accomplished author with several bestsellers."}'
+
+# Add a book
+Invoke-WebRequest -Uri "http://localhost:3000/books" -Method POST -ContentType "application/json" -Body '{"title":"The Secret Garden","subtitle":"A classic tale","origPubDate":"1911-11-01","tags":["classic","children"],"primAuthor":1}'
+
+# List all books
+Invoke-WebRequest -Uri "http://localhost:3000/books" -Method GET
+
+# List all books that match a given list of tags
+Invoke-WebRequest -Uri "http://localhost:3000/books/by-tags?tags=classic,children" -Method GET
+
+# List all books by a specific author
+Invoke-WebRequest -Uri "http://localhost:3000/books/by-author/1" -Method GET
+
+# Get the details of a specific book
+Invoke-WebRequest -Uri "http://localhost:3000/books/1" -Method GET
+
+# Update any of the attributes of a specific book
+Invoke-WebRequest -Uri "http://localhost:3000/books/1" -Method PUT -ContentType "application/json" -Body '{"subtitle":"An enchanting story of friendship"}'
+
+# Remove a book (and by extension all its editions)
+Invoke-WebRequest -Uri "http://localhost:3000/books/1" -Method DELETE
+
+# Add an edition of a specific book
+Invoke-WebRequest -Uri "http://localhost:3000/books/2/editions" -Method POST -ContentType "application/json" -Body '{"editionNumber":2,"publicationDate":"2024-03-01"}'
+
+# List editions of a specific book
+Invoke-WebRequest -Uri "http://localhost:3000/books/2/editions" -Method GET
+
+# Remove an edition of a specific book
+Invoke-WebRequest -Uri "http://localhost:3000/books/2/editions/2" -Method DELETE
