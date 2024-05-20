@@ -1,3 +1,7 @@
+// Bryan Duong
+// App.js
+// 5/19/24
+
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import ChallengeListingScreen from './components/ChallengeListingScreen';
