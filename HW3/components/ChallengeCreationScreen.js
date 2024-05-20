@@ -1,3 +1,8 @@
+// Bryan Duong
+// ChallengeCreationScreen.js
+// Program used to manage the challenge creation screen.
+// 5/19/24
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
