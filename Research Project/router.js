@@ -1,9 +1,8 @@
-// src/router.js
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/components/Home.vue';
-import ChallengeCreationScreen from '@/components/ChallengeCreation.vue';
-import ChallengeListingScreen from '@/components/ChallengeList.vue';
-import ChallengeRecordingScreen from '@/components/ChallengeRecording.vue';
+import ChallengeList from '@/components/ChallengeList.vue';
+import ChallengeCreation from '@/components/ChallengeCreation.vue';
+import ChallengeRecording from '@/components/ChallengeRecording.vue';
 
 const routes = [
     {
@@ -13,23 +12,23 @@ const routes = [
     },
     {
         path: '/create-challenge',
-        name: 'ChallengeCreationScreen',
-        component: ChallengeCreationScreen
+        name: 'ChallengeCreation',
+        component: ChallengeCreation
     },
     {
         path: '/list-challenges',
-        name: 'ChallengeListingScreen',
-        component: ChallengeListingScreen
+        name: 'ChallengeList',
+        component: ChallengeList
     },
     {
         path: '/record/:id',
-        name: 'ChallengeRecordingScreen',
-        component: ChallengeRecordingScreen
+        name: 'ChallengeRecording',
+        component: ChallengeRecording
     }
 ];
 
 const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
+    history: createWebHistory(),
     routes
 });
 
