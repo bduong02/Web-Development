@@ -1,0 +1,17 @@
+/* src/index.css */
+
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+}
+
+@media (max-width: 600px) {
+  .Container {
+    flex-direction: column;
+  }
+
+  .ImageWrapper, .Info {
+    width: 100%;
+  }
+}
